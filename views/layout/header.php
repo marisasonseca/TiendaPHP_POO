@@ -6,7 +6,7 @@
     <meta name="robots" content="index, follow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Shirt Shop</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="<?=BASE_URL?>assets/css/style.css">
 
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +18,7 @@
     <header class="site-header">
         <div class="header-logo">
             <figure class="logo">
-                <img src="assets/img/camiseta.png" alt="Camiseta logo" />
+                <img src="<?=BASE_URL?>assets/img/camiseta.png" alt="Camiseta logo" />
             </figure>
             <a href="index.php">
                 shirts shop
