@@ -1,6 +1,11 @@
 <h2>Registration</h2>
+<?php if(isset($_SESSION['register']) && $_SESSION['register'] == 'Register Complete'):?>
+    <h2><?=$_SESSION['register']?></h2>
+    <?php else:?>
+        <h3>Register Failed</h3>
+    <?php endif;?>
 
-<form action="index.php?controller=user&action=save" method="POST">
+<form action="<?=BASE_URL?>user/save" method="POST">
     <label for="name">Name</label>
     <input type="text" name="name">
 
