@@ -1,0 +1,67 @@
+PRIMERO
+
+/**
+ * 
+ * AL TERMINAR HACER COMMIT Y SEGUIR CON REGISTRO COMPLETADO
+ * 
+ * crear una clase user con los atributos
+ *  id,name,lastName,email,password,type,image,db
+    llamar la db con un constructor
+    
+ *  sus getters y setters en los setters realizar escape de strings para mysql
+ *  tambien realizar un hash para las contraseñas con un costo de 4
+     Crear un metodo save
+      query de guardar user:
+      guardar
+      variables para comprobar que se guardo
+ 
+ */
+ /**
+  * controlador
+        save, recoge la info por POST
+            instanciar user si existe
+            usar los setters para la info
+            guardar la info
+            si guarda mensaje Register complete -> session complete
+            sino fallo ->
+            sino fallo
+            re direccionar al registro
+
+
+  */
+
+/**
+ * Cambiar la action del formulario
+ * 
+ * condicón if session save = complete
+ *      Complete register
+ *      sino existerfalla failed register
+ * session start en index
+ */
+
+
+
+----------- SEGUNDO --------------
+/**
+ * REGISTRO COMPLETADO
+ * 
+ * Crear la carpeta helpers en la raiz
+ *    Una clase Utils
+ * 
+ *    metodo estatico deleteSessión($namesession)
+        comprobar si la sessión existe
+            destruir una variable de session(unset)
+    
+            darle estilos a los mensajes de session
+ *  añadir la clase a index 
+ * 
+ * Usar utils en el formulario registro para borrar la session
+ *
+ * EN USERCONTROLLER
+ *  metodo saver
+ *  guardar los datos que llega de post en variables,
+ *  usando los if reducidos de php
+ *  recomienda que adaptemos la validación que hicimos con vanila
+ *  y condicionar el guardado para saber si los datos estan llegando correctamente
+ *  settear los datos para la clase user
+ */
