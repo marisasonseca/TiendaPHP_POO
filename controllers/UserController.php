@@ -17,10 +17,10 @@ class UserController
     {
         if(isset($_POST)){
 
-            $name = $_POST['name'];
-            $lastName = $_POST['lastName'];
-            $email = $_POST['email'];
-            $password = $_POST['password'];
+            $name = isset($_POST['name']) && Utils::verifyDate($_POST['name']) ? $_POST['name'] : false;
+            $lastName = isset($_POST['lastName']) && Utils::verifyDate($_POST['lastName']) ? $_POST['lastName'] : false;
+            $email = isset($_POST['email']) && Utils::verifyDate($_POST['email']) ? $_POST['email'] : false;
+            $password = isset($_POST['email']) && Utils::verifyDate($_POST['email']) ? $_POST['email'] : false;
 
             $user = new User();
             $user->setName($name);
@@ -31,14 +31,14 @@ class UserController
             $save = $user->save();
 
             if($save) {
-                $_SESSION['register'] = 'Registration Complete';
+                $_SESSION['register'] = 'Complete Registration';
             } else {
-                $_SESSION['register'] = 'Registration Failed1';
+                $_SESSION['register'] = 'Register failed';
             }
             
         } else {
-            $_SESSION['register'] = 'Registration Failed1';
+            $_SESSION['register'] = 'Register failed';
         }
         header('Location:' . BASE_URL . 'user/register');
-    }
+    } 
 }
