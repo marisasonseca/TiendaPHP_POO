@@ -1,14 +1,26 @@
 <?php
+    session_start();
     require_once 'autoload.php';
+    require_once 'config/parameters.php';
+    require_once 'helpers/Utils.php';
     require_once 'views/layout/header.php';
     require_once 'views/layout/sidebar.php';
+
+    function showError()
+    {
+        $error = new ErrorController();
+        $error->index();
+    }
 
     if(isset($_GET['controller'])){
         $nameController = $_GET['controller'].'controller';
     
+    }elseif (!isset($_GET['controller']) && (!isset($_GET['action']))){
+
+        $nameController = CONTROLLER_DEFAULT;
+
     }else {
-        echo '<h4>Error 404, tu pagina no existe bebe xD</h4>';
-        exit();
+        showError();
     }
 
     if(isset($nameController) && class_exists($nameController)){
@@ -19,12 +31,16 @@
 
             $action = $_GET['action'];
             $controller->$action();
+        }elseif (!isset($_GET['controller']) && (!isset($_GET['action']))){
+            $action_default = ACTION_DEFAULT;
+            $controller->$action_default();
+
         }else {
-            echo'<h4>Error 404, tu pagina no existe bebe xD</h4>';
+            showError();
         }
         
     } else {
-        echo'<h4>Error 404, tu pagina no existe bebe xD</h4>';
+        showError();
     }
 
     require_once 'views/layout/footer.php'
