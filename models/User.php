@@ -1,6 +1,8 @@
 <?php
 
-class User
+require_once 'config/DataBase.php';
+
+class User 
 {
     private $id;
     private $name;
@@ -14,10 +16,7 @@ class User
     public function __construct()
     {
         $this->db = DataBase::connect();
-        
     }
-    
-
 
     /**
      * Get the value of id
@@ -114,7 +113,7 @@ class User
      */ 
     public function setPassword($password)
     {
-        $this->password = password_hash($this->db->real_escape_string($password), PASSWORD_BCRYPT, ['cost'=> 4]);
+        $this->password = password_hash($this->db->real_escape_string($password), PASSWORD_BCRYPT, ['cost' => 4]);
         return $this;
     }
 
@@ -134,7 +133,6 @@ class User
     public function setType($type)
     {
         $this->type = $type;
-
         return $this;
     }
 
@@ -148,32 +146,29 @@ class User
 
     /**
      * Set the value of image
-     *
      * @return  self
      */ 
     public function setImage($image)
     {
         $this->image = $image;
-
         return $this;
     }
 
-    /**
-     * Get the value of db
-     */ 
-
     public function save()
     {
-        $query = "INSERT INTO usuarios
-                  VALUES(NULL, '{$this->getName()}', '{$this->getLastName()}', '{$this->getEmail()}', '{$this->getPassword()}', 'user', NULL)";
+        $query = "INSERT INTO usuarios 
+                  VALUES(NULL, '{$this->getName()}', '{$this->getLastName()}', 
+                  '{$this->getEmail()}', '{$this->getPassword()}', 'user', NULL)";
+
         $save = $this->db->query($query);
 
         $result = false;
-        if ($save) {
+        if($save) {
             $result = true;
-        }else {
+        } else{
             $result = false;
         }
         return $result;
     }
+    
 }

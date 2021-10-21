@@ -1,5 +1,4 @@
 <?php
-
 require_once 'models/User.php';
 
 class UserController
@@ -17,23 +16,29 @@ class UserController
     public function save()
     {
         if(isset($_POST)){
+
+            $name = isset($_POST['name']) && Utils::verifyDate($_POST['name']) ? $_POST['name'] : false;
+            $lastName = isset($_POST['lastName']) && Utils::verifyDate($_POST['lastName']) ? $_POST['lastName'] : false;
+            $email = isset($_POST['email']) && Utils::verifyDate($_POST['email']) ? $_POST['email'] : false;
+            $password = isset($_POST['email']) && Utils::verifyDate($_POST['email']) ? $_POST['email'] : false;
+
             $user = new User();
-            $user->setName($_POST['name']);
-            $user->setLastname($_POST['lastName']);
-            $user->setEmail($_POST['email']);
-            $user->setPassword($_POST['password']);
-            
+            $user->setName($name);
+            $user->setLastName($lastName);
+            $user->setEmail($email);
+            $user->setPassword($password);
+
             $save = $user->save();
 
-            if($save){
-                $_SESSION['register'] = 'Register Complete';
+            if($save) {
+                $_SESSION['register'] = 'Complete Registration';
             } else {
-                echo 'No Guardo';
-                $_SESSION['register'] = 'Register Failed';
+                $_SESSION['register'] = 'Register failed';
             }
+            
+        } else {
+            $_SESSION['register'] = 'Register failed';
         }
-
-        header("Location:".BASE_URL.'user/register');
-
-    }
+        header('Location:' . BASE_URL . 'user/register');
+    } 
 }

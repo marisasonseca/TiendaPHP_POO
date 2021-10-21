@@ -297,3 +297,20 @@ button {
     font-size: 1.6rem;
     color: white;
 }
+
+.alert {
+    color: #d82f23;
+    width: 30%;
+    height: 4rem;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 1.4rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    font-size: 1.6rem;
+}
+
+.alert-complete {
+    color: #2f9646;
+}
+
