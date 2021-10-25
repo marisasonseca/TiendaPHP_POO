@@ -311,6 +311,15 @@ button {
     font-size: 1.6rem;
 }
 
+.sidebar-login .alert {
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+    font-size: 1.2rem;
+    width: auto;
+
+}
+
 .alert-complete {
     color: #2f9646;
 }
