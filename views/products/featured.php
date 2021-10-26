@@ -6,7 +6,7 @@
                     </figure>
                     <h3>Wide Blue T-Shirt</h3>
                     <p>$30 Euros</p>
-                    <a class="product-button"  href="#">Buy</a>
+                    <a class="product-button buttom"  href="#">Buy</a>
                 </div>
                 <div class="product">
                     <figure>
@@ -14,7 +14,7 @@
                     </figure>
                     <h3>Wide Blue T-Shirt</h3>
                     <p>$30 Euros</p>
-                    <a class="product-button" href="#">Buy</a>
+                    <a class="product-button buttom" href="#">Buy</a>
                 </div>
                 <div class="product">
                     <figure>
@@ -22,7 +22,7 @@
                     </figure>
                     <h3>Wide Blue T-Shirt</h3>
                     <p>$30 Euros</p>
-                    <a class="product-button" href="#">Buy</a>
+                    <a class="product-button buttom" href="#">Buy</a>
                 </div>
                 <div class="product">
                     <figure>
@@ -30,7 +30,7 @@
                     </figure>
                     <h3>Wide Blue T-Shirt</h3>
                     <p>$30 Euros</p>
-                    <a class="product-button" href="#">Buy</a>
+                    <a class="product-button buttom" href="#">Buy</a>
                 </div>
 
             </div>

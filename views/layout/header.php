@@ -20,16 +20,18 @@
             <figure class="logo">
                 <img src="<?=BASE_URL?>assets/img/camiseta.png" alt="Camiseta logo" />
             </figure>
-            <a href="index.php">
+            <a href="<?=BASE_URL?>">
                 shirts shop
             </a>
         </div>
     <!-- Menu -->
+        <?php $categories = Utils::showCategories();?>
         <nav class="header-menu">
             <ul>
                 <li><a href="#">Home</a></li>
-                <li><a href="">Category 1</a></li>
-                <li><a href="">Category 2</a></li>
+                <?php while($category = $categories->fetch_object()): ?>
+                    <li><a href=""><?=$category->name?></a></li>
+                <?php endwhile;?>
             </ul>
         </nav>
     </header>

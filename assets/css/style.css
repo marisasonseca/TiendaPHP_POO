@@ -194,7 +194,7 @@ input[type="email"]:focus {
 
 input[type="button"],
 input[type="submit"],
-button, .product-button {
+.buttom, .product-button {
     font-size: 1.6rem;
     display: block;
     border-radius: .2rem;
@@ -206,6 +206,15 @@ button, .product-button {
     background-color: #2979CD;
     border: .1rem solid #11608E;
     cursor: pointer;
+}
+
+.main-content .buttom {
+    background-color: #33AE3D;
+    color: white;
+    margin-bottom: 2rem;
+    width: 10rem;
+    margin: 2rem 4rem;
+    text-align: center;
 }
 
 label,
@@ -324,3 +333,15 @@ button {
     color: #2f9646;
 }
 
+table {
+    border: 1px solid black;
+    font-size: 1.6rem;
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+td {
+    border-top: 1px solid #ccc;
+    padding: 0.2rem;
+}

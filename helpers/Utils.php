@@ -40,4 +40,21 @@ class Utils
         }
         return $valid;
     }
+
+    public static function isAdmin()
+    {
+        if(! isset($_SESSION['admin'])) {
+            header('Location:' . BASE_URL);
+        } else {
+            return true;
+        }
+    }
+
+    public static function showCategories()
+    {
+        require_once 'models/Category.php';
+        $category = new Category();
+        $categories = $category->getAll();
+        return $categories;
+    }
 }

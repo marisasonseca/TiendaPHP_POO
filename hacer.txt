@@ -65,3 +65,35 @@ PRIMERO
  *  y condicionar el guardado para saber si los datos estan llegando correctamente
  *  settear los datos para la clase user
  */
+
+
+
+
+
+------ CATEGORIAS ------
+
+controlador
+    metodo index
+        llamar la vista del modelo
+        cargar el modelo
+    metodo save
+        llamar vista crear (name y un boton)
+        comprobar el tipo de usuario
+        guardar la nueva categoria
+
+
+index
+    listar la CATEGORIAS
+    añadir un boton para crear una categoria
+    mostrar las categorias con una tabla
+    estilar tabla
+
+modelo category
+    id, name y db, setters y getters (escapar setName)
+    metodo getAll forma descendente
+    metodo save
+
+
+crear una funcion para comprobar si hay un usuario admin en utils
+
+realizar el menu del header
