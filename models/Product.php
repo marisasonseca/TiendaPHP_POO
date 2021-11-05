@@ -194,7 +194,7 @@ class Product
     {
         $sql = "INSERT INTO productos 
                VALUES(NULL, '{$this->getIdCategory()}', '{$this->getName()}', '{$this->getDescription()}', 
-               {$this->getPrice()}, {$this->getStock()}, NULL, CURDATE(), NULL);";
+               {$this->getPrice()}, {$this->getStock()}, NULL, CURDATE(), '{$this->getImage()}');";
 
         $save = $this->db->query($sql);
 

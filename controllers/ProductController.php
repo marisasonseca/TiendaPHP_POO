@@ -45,6 +45,24 @@ class ProductController
                 $product->setStock($stock);
                 $product->setIdCategory($category);
                 
+                // save images
+                if($_FILES['image']) {
+
+                    $file = $_FILES['image'];
+                    $fileName = $file['name'];
+                    $fileType = $file['type'];
+
+                    if ($fileType == 'image/jpg' || $fileType == 'image/jpeg' || $fileType == 'image/png' || $fileType == 'image/gif'){
+                        if(! is_dir('upload/images')) {
+                            mkdir('upload/images', 0777, true);
+                        }
+
+                        $product->setImage($fileName);
+                        move_uploaded_file($file['tmp_name'], 'upload/images/'. $fileName);
+                    }
+                }
+
+
                 $save = $product->save();
     
                 if ($save) {

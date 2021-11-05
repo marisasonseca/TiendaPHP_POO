@@ -1,7 +1,7 @@
 <h2>Create Product</h2>
 
 <div class="form__container">
-    <form action="<?=BASE_URL?>product/save" method="POST">
+    <form action="<?=BASE_URL?>product/save" method="POST" enctype="multipart/form-data">
         <label for="name">Name</label>
         <input type="text" name="name" id="name">
 
