@@ -18,7 +18,9 @@
 
                     <input type="submit" value="Enter">
                 </form>
-                
+                <li>
+                    <a href="<?=BASE_URL?>user/register">Register</a>
+                </li>
                 <?php else:?>
                     <h3><?=$_SESSION['identity']->name?> <?=$_SESSION['identity']->lastName?></h3>
                 <?php endif;?>
@@ -31,7 +33,10 @@
                             <a href="#">Orders Management</a>
                         </li>
                         <li>
-                            <a href="#">Categories Management</a>
+                            <a href="<?=BASE_URL?>category/index">Categories Management</a>
+                        </li>
+                        <li>
+                            <a href="<?=BASE_URL?>product/management">Product Management</a>
                         </li>
                     <?php endif;?>
                     <?php if(isset($_SESSION['identity'])) :?>
