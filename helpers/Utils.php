@@ -57,4 +57,15 @@ class Utils
         $categories = $category->getAll();
         return $categories;
     }
+
+    public static function validDataObject($object, $value)
+    {
+        $result = '';
+        if (isset($object) && is_object($object)) {
+            $result = $object->$value;
+        } else {
+            $result = '';
+        }
+        return $result;
+    }
 }

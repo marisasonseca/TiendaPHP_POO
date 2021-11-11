@@ -62,8 +62,14 @@ class ProductController
                     }
                 }
 
+                if (isset($_GET) && !empty($_GET)) {
+                    $id = isset($_GET['id']) ? $_GET['id'] : false;
+                    $product->setId($id);
+                    $save = $product->edit();
 
-                $save = $product->save();
+                }else {
+                    $save = $product->save();
+                }
     
                 if ($save) {
                     $_SESSION['product'] = 'Complete';
@@ -78,5 +84,45 @@ class ProductController
             $_SESSION['product'] = 'Faile';
         }
         header('Location:'. BASE_URL. 'product/management');
+    }
+
+    public function edit()
+    {
+        if (isset($_GET) && !empty($_GET)) {
+            
+            $id = isset($_GET['id']) ? $_GET['id'] : false;
+            $edit = true;
+
+            $product = new Product();
+            $product->setId($id);
+            $prod = $product->getOne();
+
+            require_once 'views/product/create.php';
+        }
+    }
+    
+    public function delete()
+    {
+        Utils::isAdmin();
+
+        if(isset($_GET) && !empty($_GET)){
+
+            $id = isset($_GET['id']) ? $_GET['id'] : false;
+
+            $produt = new Product();
+            $produt->setId($id);
+            $delete = $produt->delete();
+            if($delete) {
+                $_SESSION['delete'] = 'Complete';
+            } else {
+                $_SESSION['delete'] = 'Failed';
+                echo 'fallo';
+            }
+
+        } else {
+            $_SESSION['delete'] = 'Failed';
+        }
+        
+        header('Location:'.BASE_URL.'product/management');
     }
 }
