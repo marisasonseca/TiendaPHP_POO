@@ -6,6 +6,8 @@ class ProductController
 {
     public function index()
     {
+        $product = new Product();
+        $products = $product->getRamdon(6);
         // Mostrar los productos
         require 'views/product/featured.php';
     }
@@ -46,7 +48,7 @@ class ProductController
                 $product->setIdCategory($category);
                 
                 // save images
-                if($_FILES['image']) {
+                if(isset($_FILES['image'])) {
 
                     $file = $_FILES['image'];
                     $fileName = $file['name'];
@@ -62,19 +64,21 @@ class ProductController
                     }
                 }
 
-                if (isset($_GET) && !empty($_GET)) {
-                    $id = isset($_GET['id']) ? $_GET['id'] : false;
+
+                if (isset($_GET['id'])) {
+                    $id = $_GET['id'];
                     $product->setId($id);
                     $save = $product->edit();
 
                 }else {
                     $save = $product->save();
                 }
-    
+
                 if ($save) {
                     $_SESSION['product'] = 'Complete';
                 } else {
                     $_SESSION['product'] = 'Faile';
+                    
                 }
             } else {
                 $_SESSION['product'] = 'Faile';

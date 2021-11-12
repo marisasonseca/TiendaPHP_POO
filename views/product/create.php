@@ -10,10 +10,10 @@
 <div class="form__container">
     <form action="<?=$urlAction?>" method="POST" enctype="multipart/form-data">
         <label for="name">Name</label>
-        <input type="text" name="name" id="name" value="<?=Utils::validDataObject($prod, 'name')?>">
+        <input type="text" name="name" id="name" value="<?=isset($prod) && is_object($prod) ? $prod->name : ''?>">
 
         <label for="description">Description</label>
-        <textarea name="description" id="description" cols="30" rows="10"><?=Utils::validDataObject($prod, 'description')?></textarea>
+        <textarea name="description" id="description" cols="30" rows="10"><?=isset($prod) && is_object($prod) ? $prod->description : ''?></textarea>
 
         <label for="price">Price</label>
         <input type="number" name="price" id="price" value="<?=Utils::validDataObject($prod, 'price')?>">

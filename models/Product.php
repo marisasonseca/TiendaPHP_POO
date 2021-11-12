@@ -198,6 +198,19 @@ class Product
         return $product->fetch_object();
     }
 
+    public function getAllCategory()
+    {
+        $sql = "SELECT p.*, c.name AS 'catNombre' FROM productos p
+                INNER JOIN categorias c ON c.id = p.id_categoria
+                WHERE p.id_categoria = {$this->getIdCategory()}
+                ORDER BY id  DESC";
+        $products = $this->db->query($sql);
+
+        // var_dump($products);
+        // exit();
+        return $products;
+    }
+
     public function save()
     {
         $sql = "INSERT INTO productos 
@@ -212,7 +225,6 @@ class Product
         } else {
             $result = false;
         }
-
         return $result;
     }
 
@@ -251,4 +263,13 @@ class Product
         return $result;
     }
 
+    public function getRamdon($limit)
+    {
+        $sql = "SELECT * FROM productos ORDER BY RAND() LIMIT $limit ;";
+        $products = $this->db->query($sql);
+
+        return $products;
+    }
+
+    
 }

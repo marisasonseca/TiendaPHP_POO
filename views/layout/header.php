@@ -28,9 +28,9 @@
         <?php $categories = Utils::showCategories();?>
         <nav class="header-menu">
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="<?=BASE_URL?>">Home</a></li>
                 <?php while($category = $categories->fetch_object()): ?>
-                    <li><a href=""><?=$category->name?></a></li>
+                    <li><a href="<?=BASE_URL?>category/view&id=<?=$category->id?>"><?=$category->name?></a></li>
                 <?php endwhile;?>
             </ul>
         </nav>

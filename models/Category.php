@@ -59,6 +59,14 @@ class Category
         return $categories;
     }
 
+    public function getOne()
+    {
+        $sql = "SELECT * FROM categorias WHERE id = {$this->getId()};";
+        $category = $this->db->query($sql);
+
+        return $category->fetch_object();
+    }
+
     public function save()
     {
         $sql = "INSERT INTO categorias VALUES(NULL, '{$this->getName()}');";
@@ -68,6 +76,9 @@ class Category
         if ($save) {
             $result = true;
         }
+
+        var_dump($result);
+        exit();
 
         return $result;
     }
