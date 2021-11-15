@@ -5,9 +5,10 @@
 
     <?php else:?>
         <div class="content-products">
+
             <?php while($product = $products->fetch_object()): ?>
                 <div class="product">
-                    <a href="#">
+                    <a href="<?=BASE_URL?>product/view&id=<?=$product->id?>">
                         <?php if(isset($product->image) != null) :?>
                             <figure>
                                 <img src="<?=BASE_URL?>upload/images/<?=$product->image?>" alt="">
@@ -23,6 +24,7 @@
                     <a class="product-button buttom"  href="#">Buy</a>
                 </div>
             <?php endwhile;?>
+
         </div>
     <?php endif;?>
     

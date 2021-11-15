@@ -64,7 +64,6 @@ class ProductController
                     }
                 }
 
-
                 if (isset($_GET['id'])) {
                     $id = $_GET['id'];
                     $product->setId($id);
@@ -113,9 +112,9 @@ class ProductController
 
             $id = isset($_GET['id']) ? $_GET['id'] : false;
 
-            $produt = new Product();
-            $produt->setId($id);
-            $delete = $produt->delete();
+            $product = new Product();
+            $product->setId($id);
+            $delete = $product->delete();
             if($delete) {
                 $_SESSION['delete'] = 'Complete';
             } else {
@@ -128,5 +127,19 @@ class ProductController
         }
         
         header('Location:'.BASE_URL.'product/management');
+    }
+
+    public function view()
+    {
+        if(isset($_GET) && !empty($_GET)) {
+
+            $id = isset($_GET['id']) ? $_GET['id'] : false;
+            if ($id) {
+                $product = new Product();
+                $product->setId($id);
+                $prod = $product->getOne();
+            }
+        }
+        require_once 'views/product/view.php';
     }
 }

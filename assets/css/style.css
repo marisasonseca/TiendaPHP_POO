@@ -284,6 +284,46 @@ button {
     text-align: center;
 }
 
+.product a {
+    color: #222;
+}
+
+.product a:hover {
+    color: #444;
+}
+
+.product__detail {
+    display: flex;
+    justify-content: center;
+}
+
+.detail__photo {
+    width: 40%;
+    margin-right: 3rem;
+    /* width: 100%; */
+}
+
+.detail__photo img {
+    width: 100%;
+}
+
+.detail__data {
+    width: 50%;
+    font-size: 1.6rem;
+}
+
+.detail__data h3 {
+    font-weight: 400;
+}
+
+.detail__data p {
+    margin-top: 2rem;
+}
+
+
+.product__photo img {
+    width: 100%;
+}
 
 .product figure {
     width: 10rem;
@@ -354,7 +394,6 @@ button {
     text-align: center;
     font-size: 1.2rem;
     width: auto;
-
 }
 
 .alert-complete {
