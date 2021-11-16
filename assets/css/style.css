@@ -366,6 +366,31 @@ button {
     background-color: #d82f23;
 }
 
+.cart__image {
+    display: inline-block;
+    height: 8rem;
+    margin: 1rem 0;
+}
+
+/* CART STATS*/
+
+.cart__total {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 6rem;
+    margin-top: 1rem;
+}
+
+.cart__total h3{
+    font-size: 2rem;
+    margin-right: 2rem;
+}
+
+.buttom.buttom-order {
+    margin: 0;
+}
+
 /* FOOTER */
 
 .site-footer {

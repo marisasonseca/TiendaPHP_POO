@@ -68,4 +68,37 @@ class Utils
         }
         return $result;
     }
+
+    public static function debugDate($value)
+    {
+        echo '<pre>';
+        var_dump($value);
+        echo '</pre>';
+    }
+
+    public static function statsCart()
+    {
+        $stats = [
+            "count" => 0,
+            "total" => 0
+        ];
+
+        if(isset($_SESSION['cart'])){
+            // $cart = $_SESSION['cart'];
+            $stats['count'] = count($_SESSION['cart']);
+            foreach ($_SESSION['cart'] as $product) {
+
+                // $product = $element['product'];
+                $stats['total'] += $product['price'] * $product['units'];
+            }
+
+        }
+        return $stats;
+    }
+
+    public static function formatMoney($value)
+    {
+        $result = number_format($value, 0, '', '.');
+        return $result;
+    }
 }

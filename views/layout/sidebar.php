@@ -1,5 +1,19 @@
         <!-- SIDERBAR -->
         <aside class="sidebar">
+            <?php if(isset($_SESSION['cart'])):
+                    $product = $_SESSION['cart'];
+                    $stats = Utils::statsCart();
+            ?>
+                <div class="block-siderbar sidebar-login">
+                    <h3>My Cart</h3>
+                    <ul>
+                        <li><a href="">Products(<?= $stats['count']?>)</a></li>
+                        
+                        <li><a href="">Total: $ <?=Utils::formatMoney($stats['total'])?></a></li>
+                        <li><a href="">Cart</a></li>
+                    </ul>
+                </div>
+            <?php endif;?>
             <div class="block-siderbar sidebar-login">
                 
                 

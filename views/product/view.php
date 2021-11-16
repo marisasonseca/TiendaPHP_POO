@@ -16,7 +16,7 @@
         <div class="detail__data">
             <h3><?=$prod->description?></h3>
             <p>$<?=$prod->price?></p>
-            <a class="product-button buttom"  href="#">Buy</a>
+            <a class="product-button buttom"  href="<?=BASE_URL?>cart/add&id=<?=$prod->id?>">Buy</a>
         </div>
     </div>
 

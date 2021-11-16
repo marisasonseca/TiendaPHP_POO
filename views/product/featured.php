@@ -20,7 +20,7 @@
                         </a>
 
                         <p>$<?=$product->price?></p>
-                        <a class="product-button buttom"  href="#">Buy</a>
+                        <a class="product-button buttom"  href="<?=BASE_URL?>cart/add&id=<?=$product->id?>">Buy</a>
                     </div>
 
                 <?php endwhile;?>
