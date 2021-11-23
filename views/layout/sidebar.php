@@ -42,7 +42,7 @@
             <?php if(isset($_SESSION['admin'])) :?>
 
                 <li>
-                    <a href="#">Orders Management</a>
+                    <a href="<?=BASE_URL?>order/management">Orders Management</a>
                 </li>
                 <li>
                     <a href="<?=BASE_URL?>category/index">Categories Management</a>
@@ -53,7 +53,7 @@
             <?php endif;?>
             <?php if(isset($_SESSION['identity'])) :?>
                 <li>
-                    <a href="#">My Orders</a>
+                    <a href="<?=BASE_URL?>order/myOrders">My Orders</a>
                 </li>
                 <li>
                     <a href="<?=BASE_URL?>user/logout">Log out</a>

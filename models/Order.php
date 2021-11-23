@@ -231,15 +231,15 @@ class Order
             $product = $element['product'];
 
             $insert = "INSERT INTO lineas_pedidos VALUES(NULL, {$order_id}, {$product->id}, {$element['units']});";
-            
+        
             $save = $this->db->query($insert);
 
-            $result = false;
-            if($save){
-                $result = true;
-            }
-            return $result;
         }
+        $result = false;
+        if($save){
+            $result = true;
+        }
+        return $result;
 
     }
     
@@ -263,5 +263,53 @@ class Order
         $products = $this->db->query($sql);
         
         return $products;    
+    }
+
+    public function getAllByUser()
+    {
+        $sql = "SELECT * FROM pedidos
+                WHERE id_usuario = {$this->getId_user()}
+                ORDER BY id DESC;";
+        
+        $orders = $this->db->query($sql);
+
+        return $orders;
+    }
+
+    public function getOne()
+    {
+        $sql = "SELECT * FROM pedidos
+                WHERE id = {$this->getId()};";
+        
+        $order = $this->db->query($sql);
+
+        return $order->fetch_object();
+    }
+
+    public function getAll() 
+    {
+        $sql = "SELECT * FROM pedidos
+                ORDER BY id DESC;";
+        
+        $orders = $this->db->query($sql);
+        return $orders;
+    }
+
+    public function update()
+    {
+        $sql = "UPDATE pedidos set state = '{$this->getState()}'
+                WHERE id = {$this->getId()};";
+
+        $save = $this->db->query($sql);
+
+        $result = false;
+
+        if($save){
+            $result = true;
+        }else {
+            $result = false;
+        }
+
+        return $result;
     }
 }

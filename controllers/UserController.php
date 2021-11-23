@@ -85,6 +85,9 @@ class UserController
 		if(isset($_SESSION['admin'])){
 			unset($_SESSION['admin']);
 		}
+		if(isset($_SESSION['cart'])){
+			unset($_SESSION['cart']);
+		}
 		
 		header("Location:".BASE_URL);
 	}

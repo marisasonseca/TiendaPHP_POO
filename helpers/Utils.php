@@ -110,4 +110,27 @@ class Utils
         $result = number_format($value, 0, '', '.');
         return $result;
     }
+
+    public static function showOrderState($status)
+    {
+        $value = "Pending";
+        if($status == 'confirm') {
+
+            $value = "Pending";
+
+        }elseif ($status == 'preparation'){
+           
+            $value = "In preparation"; 
+        
+        }elseif ($status == 'ready'){
+            
+            $value = "Ready to Send";
+        
+        }elseif ($status == 'sended'){
+            $value = "Sent";
+            
+        }
+        
+        return $value;
+    }
 }
