@@ -28,6 +28,14 @@ a:hover {
     color: #555555;
 }
 
+p {
+    font-size: 1.6rem;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
 /* HEADER */
 .site-header,
 .site-main,
@@ -389,6 +397,24 @@ button {
 
 .buttom.buttom-order {
     margin: 0;
+}
+
+/* ORDERS */
+.order__date {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.order__date h3 {
+    margin-bottom: 2rem;
+}
+
+.order__products {
+    text-align: center;
+}
+
+.order__products h3 {
+    margin-bottom: 2.5rem;
 }
 
 /* FOOTER */

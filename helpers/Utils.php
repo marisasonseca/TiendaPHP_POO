@@ -50,6 +50,15 @@ class Utils
         }
     }
 
+    public static function isLogin()
+    {
+        if(! isset($_SESSION['identity'])) {
+            header('Location:' . BASE_URL);
+        } else {
+            return true;
+        }
+    }
+
     public static function showCategories()
     {
         require_once 'models/Category.php';

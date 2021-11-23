@@ -33,5 +33,5 @@
 <?php $stast =Utils::statsCart()?>
 <div class="cart__total">
     <h3>Total Price: <?=$stast['total']?></h3>
-    <a class="buttom buttom-order" href="#">Order</a>
+    <a class="buttom buttom-order" href="<?=BASE_URL?>order/make">Order</a>
 </div>
