@@ -271,5 +271,24 @@ class Product
         return $products;
     }
 
-    
+    public function updateStockProduct()
+    {
+        $current = $this->getStock();
+
+        $sql = "UPDATE productos set stock = {$this->stock}
+                WHERE id = {$this->getId()}";
+        // echo $sql;
+        // exit();
+        $save = $this->db->query($sql);
+
+        $result = false;
+        if($save) {
+            $result = true;
+        } else {
+            $result = false;
+        }
+        return $result;
+    }
+ 
+
 }

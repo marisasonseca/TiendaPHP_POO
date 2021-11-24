@@ -6,20 +6,21 @@
     <h3 class="alert alert-failed"><?=$_SESSION['register']?></h3>
 <?php endif;?>
 <?php Utils::deleteSession('register');?>
-
-<form action="<?=BASE_URL?>user/save" method="POST">
-    <label for="name">Name</label>
-    <input type="text" name="name">
-
-    <label for="lastName">Last Name</label>
-    <input type="text" name="lastName">
-
-    <label for="email">Email</label>
-    <input type="email" name="email">
-
-    <label for="password">Password</label>
-    <input type="password" name="password">
-
-    <input type="submit" value="Register">
-
-</form>
+<div class="form__container">
+    <form action="<?=BASE_URL?>user/save" method="POST">
+        <label for="name">Name</label>
+        <input type="text" name="name">
+    
+        <label for="lastName">Last Name</label>
+        <input type="text" name="lastName">
+    
+        <label for="email">Email</label>
+        <input type="email" name="email">
+    
+        <label for="password">Password</label>
+        <input type="password" name="password">
+    
+        <input type="submit" value="Register">
+    
+    </form>
+</div>

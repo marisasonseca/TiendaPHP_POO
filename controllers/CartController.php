@@ -49,12 +49,38 @@ class CartController
             
         header("Location:". BASE_URL.'cart/index');
 
-        
     }
 
-    public function remove()
+    public function delete()
     {
+        if(isset($_GET['index'])){
+            $index = $_GET['index'];
+            unset($_SESSION['cart'][$index]);
+        }
         
+        header('Location:'.BASE_URL.'cart/index');
+    }
+
+    public function up()
+    {
+        if(isset($_GET['index'])){
+            $index = $_GET['index'];
+            $_SESSION['cart'][$index]['units']++;
+        }
+        header('Location:'.BASE_URL.'cart/index');
+    }
+
+    public function down()
+    {
+        if(isset($_GET['index'])){
+            $index = $_GET['index'];
+            $_SESSION['cart'][$index]['units']--;
+
+            if($_SESSION['cart'][$index]['units'] == 0) {
+                unset($_SESSION['cart'][$index]);
+            }
+        }
+        header('Location:'.BASE_URL.'cart/index');
     }
 
     public function deleteAll()
@@ -62,4 +88,6 @@ class CartController
         unset($_SESSION['cart']);
         header('Location:' . BASE_URL . 'cart/index');
     }
+
+   
 }

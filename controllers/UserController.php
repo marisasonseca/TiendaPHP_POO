@@ -16,20 +16,21 @@ class UserController
     public function save()
     {
         if(isset($_POST)){
-
-            $name = isset($_POST['name']) && Utils::verifyDate($_POST['name']) ? $_POST['name'] : false;
-            $lastName = isset($_POST['lastName']) && Utils::verifyDate($_POST['lastName']) ? $_POST['lastName'] : false;
-            $email = isset($_POST['email']) && Utils::verifyDate($_POST['email']) ? $_POST['email'] : false;
-            $password = isset($_POST['password']) && Utils::verifyDate($_POST['password']) ? $_POST['password'] : false;
-
+ 
+            // data validation
+            $name = isset($_POST['name']) && Utils::verifyDate($_POST['name'], 'name') ?  $_POST['name'] : 'nada';
+            $lastName = isset($_POST['lastName']) && Utils::verifyDate($_POST['lastName'], 'lastName') ? $_POST['lastName'] : false;
+            $email = isset($_POST['email']) && Utils::verifyDate($_POST['email'], 'email') ? $_POST['email'] : false;
+            $password = isset($_POST['password']) && Utils::verifyDate($_POST['password'], 'password') ? $_POST['password'] : false;
+            
             $user = new User();
             $user->setName($name);
             $user->setLastName($lastName);
             $user->setEmail($email);
             $user->setPassword($password);
 
+            
             $save = $user->save();
-
             if($save) {
                 $_SESSION['register'] = 'Complete Registration';
             } else {
@@ -84,6 +85,9 @@ class UserController
 		
 		if(isset($_SESSION['admin'])){
 			unset($_SESSION['admin']);
+		}
+		if(isset($_SESSION['cart'])){
+			unset($_SESSION['cart']);
 		}
 		
 		header("Location:".BASE_URL);

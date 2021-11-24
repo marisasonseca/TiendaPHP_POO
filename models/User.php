@@ -161,6 +161,7 @@ class User
                   '{$this->getEmail()}', '{$this->getPassword()}', 'user', NULL)";
 
         $save = $this->db->query($query);
+        echo $query;
 
         $result = false;
         if($save) {
