@@ -16,7 +16,7 @@
                     <td><?=$order->date?></td>
                     <td>$ <?=Utils::formatMoney($order->cost)?></td>
                     <td>
-                        <?=$order->state?>
+                        <?=Utils::showOrderState($order->state)?>
                     </td>
                 </tr>
             <?php endwhile;?>

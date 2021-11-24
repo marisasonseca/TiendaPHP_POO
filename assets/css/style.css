@@ -380,14 +380,31 @@ button {
     margin: 1rem 0;
 }
 
+.updown__units {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.updown__units .buttom {
+    width: 33%;
+    margin: 0;
+    margin-top: 2rem;
+    text-align: center;
+}
+
 /* CART STATS*/
+
+.cart__butttoms {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 5rem;
+    margin-top: 1rem;
+}
 
 .cart__total {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    margin-right: 6rem;
-    margin-top: 1rem;
 }
 
 .cart__total h3{
@@ -398,6 +415,16 @@ button {
 .buttom.buttom-order {
     margin: 0;
 }
+
+.buttom.cart-delete {
+    background-color: #d82f23;
+    margin: 0 auto;
+}
+
+.cart__delete .buttom-order{
+    background-color: #d82f23;
+}
+
 
 /* ORDERS */
 .order__date {

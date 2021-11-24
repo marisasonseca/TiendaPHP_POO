@@ -15,6 +15,13 @@
                 <input type="submit" value="Change State">
            </form>
         </div>
+        <div class="order__date">
+        <h3>USER DATA</h3>
+        <p>Name: <?=$user->name?></p>
+        <p>Last Name: <?=$user->lastName?></p>
+        <p>Email: <?=$user->email?></p>
+    </div>
+    
     <?php endif?>
     
 

@@ -12,18 +12,18 @@ class Utils
     /**
      * Vefifica los datos que llegan del formulario
      */
-    public static function verifyDate($data)
+    public static function verifyDate($data, $tipo)
     {
         $valid = false;
-        if ($data == 'name' or $data == 'lastName') {
-            if (empty($_POST[$data]) && (! is_numeric($data)) && (!preg_match('/[0-9]', $data))) {
+        if (($tipo == 'name' or $tipo == 'lastName')) {
+            if (!empty($data) && (! is_numeric($data)) && (!preg_match('/[0-9]/', $data))) {
                 $valid = true;
             } else {
                 $valid = false;
             }
         }
-
-        if ($data == 'email') {
+        
+        if ($tipo == 'email') {
             if(empty($_POST[$data]) && filter_var($data, FILTER_VALIDATE_EMAIL) ) {
                 $valid = true;
             } else {
@@ -31,13 +31,14 @@ class Utils
             }
         }
 
-        if ($data == 'password') {
+        if ($tipo == 'password') {
             if(empty($_POST[$data])){
                 $valid = true;
             }  else {
                 $valid =false;
             }
         }
+
         return $valid;
     }
 

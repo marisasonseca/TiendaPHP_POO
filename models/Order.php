@@ -230,8 +230,8 @@ class Order
 
             $product = $element['product'];
 
+            // guardar información del pedido lineas_pedidos
             $insert = "INSERT INTO lineas_pedidos VALUES(NULL, {$order_id}, {$product->id}, {$element['units']});";
-        
             $save = $this->db->query($insert);
 
         }
@@ -276,13 +276,33 @@ class Order
         return $orders;
     }
 
+    public function getDataUser()
+    {
+        $sql = "SELECT u.*, p.id FROM usuarios u
+                INNER JOIN pedidos p ON p.id_usuario = u.id
+                WHERE p.id_usuario = {$this->getId_user()} AND p.id = {$this->getId()}";
+        
+        $user = $this->db->query($sql);
+
+        return $user->fetch_object();
+    }
+
     public function getOne()
     {
         $sql = "SELECT * FROM pedidos
                 WHERE id = {$this->getId()};";
         
         $order = $this->db->query($sql);
+        return $order->fetch_object();
+    }
 
+    public function getLastOrderUser()
+    {
+        $sql = "SELECT * FROM pedidos
+                WHERE id_usuario = {$this->getId_user()}
+                ORDER BY id DESC LIMIT 1;";
+        
+        $order = $this->db->query($sql);
         return $order->fetch_object();
     }
 
@@ -312,4 +332,10 @@ class Order
 
         return $result;
     }
+
+    // public function updateUnitsProduct($id_product)
+    // {
+
+    //     $update = "UPDATE productos set stock = "
+    // }
 }
